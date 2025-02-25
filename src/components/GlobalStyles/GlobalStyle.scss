@@ -18,13 +18,24 @@
 html {
     font-size: 62.5%;
 }
+// font embeded
+@font-face {
+    font-family: IMD Plex Sans;
+    src: url("/src/asset/font/DM-Sans-regular.woff2");
+}
+
+
+
 body {
 //   font-family: "Montserrat", serif;
-  font-family: "Roboto" , sans-serif;
+  font-family: "IMD Plex Sans" , sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
 }
+
+
+
 
 button,input,[tabindex]{
     outline: none;
@@ -35,3 +46,23 @@ a[href]{
     color: var(--text-color);
     text-decoration: none;
 }
+
+// custom tooltip
+body{
+
+    .tippy-box{
+        padding: 4px 2px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        background-color: rgba(84,84,84,0.92);
+    }
+    .tippy-content{
+        padding: 8px 9px;
+    }
+    .tippy-arrow{
+        color: rgba(84,84,84,0.92);
+
+    }
+} 

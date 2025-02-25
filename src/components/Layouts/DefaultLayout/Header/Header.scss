@@ -62,17 +62,14 @@
   }
 }
 
-.search-result{
-
+.search-result {
 }
-.search-title{
+.search-title {
   padding: 4px 12px;
   font-size: 1.4rem;
   font-weight: 600;
-  color: rgba(22 , 24 , 35 , 0.5);
-  
+  color: rgba(22, 24, 35, 0.5);
 }
-
 
 .clear-btn,
 .loading-btn {
@@ -101,4 +98,28 @@
   }
 }
 .actions {
+  display: flex;
+  align-items: center;
+
+  .actions-btn {
+    background-color: transparent;
+    font-size: 2.2rem;
+    color: #161823;
+    padding: 4px 12px;
+    cursor: pointer;
+  }
+  .user-avatar {
+    margin-left: 12px;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+.more-btn {
+  padding: 4px 8px;
+  font-size: 2rem;
+  margin-left: 20px;
+  background-color: transparent;
 }
