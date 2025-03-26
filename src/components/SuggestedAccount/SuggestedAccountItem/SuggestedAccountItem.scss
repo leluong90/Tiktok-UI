@@ -1,0 +1,71 @@
+.suggest-account-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.item-info {
+  flex: 1;
+  margin-left: 16px;
+}
+.nickname {
+  font-size: 1.8rem;
+  color: #161823;
+}
+.check {
+  font-size: 1.6rem;
+  margin-left: 6px;
+}
+.name {
+  font-size: 1.2rem;
+  opacity: #161823bf;
+}
+.tooltip-preview {
+}
+
+.suggested-account-preview {
+  padding: 20px;
+}
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.avatar-preview {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.preview-body {
+  margin-top: 12px;
+}
+.preview-body-nickname {
+  font-size: 1.8rem;
+}
+
+.preview-body-name {
+  font-size: 1.4rem;
+}
+.preview-body-analytics {
+  font-size: 1.6rem;
+  margin-top: 10px;
+}
+.value + .followers {
+  margin-left: 10px;
+}
+.value ~ .value{
+  margin-left: 20px;
+}
+.value + .like{
+  margin-left: 10px;
+}
+.like {
+  color: #161823bf;
+}

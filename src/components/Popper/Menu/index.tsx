@@ -21,10 +21,16 @@ type MenuItemsProps = {
 type MenuProps = {
   children: ReactElement;
   items: MenuItemsProps[];
+  hideOnClick?: boolean;
   onChange?: (item: MenuItemsProps) => void;
 };
 
-const Menu = ({ children, items, onChange }: MenuProps) => {
+const Menu = ({
+  children,
+  items,
+  hideOnClick = false,
+  onChange,
+}: MenuProps) => {
   const [history, setHistory] = useState<MenuItemsProps[][]>([items]);
   const currentMenu = history[history.length - 1];
   const renderItems = () => {
@@ -45,35 +51,40 @@ const Menu = ({ children, items, onChange }: MenuProps) => {
                 })) || [],
               ]);
             } else {
-              onChange?.(item)
+              onChange?.(item);
             }
           }}
         />
       );
     });
   };
+  const renderResult = (attrs: any) => (
+    <div className="menu-list" tabIndex={-1} {...attrs}>
+      <PopperWrapper>
+        {history.length > 1 && (
+          <HeaderMenu
+            title="language"
+            onBack={() => {
+              setHistory((prev) => prev.slice(0, prev.length - 1));
+            }}
+          />
+        )}
+        <div className="menu-body">{renderItems()}</div>
+      </PopperWrapper>
+    </div>
+  );
+  const handleResetMenu = () => {
+    setHistory((prev) => prev.slice(0, 1));
+  };
   return (
     <Tippy
       interactive
       delay={[0, 500]}
-      offset={[10,10]}
+      offset={[10, 10]}
+      hideOnClick={hideOnClick}
       placement="bottom-end"
-      render={(attrs) => (
-        <div className="menu-list" tabIndex={-1} {...attrs}>
-          <PopperWrapper>
-            {history.length > 1 && (
-              <HeaderMenu
-                title="language"
-                onBack={() => {
-                  setHistory((prev) => prev.slice(0, prev.length - 1));
-                }}
-              />
-            )}
-            {renderItems()}
-          </PopperWrapper>
-        </div>
-      )}
-      onHidden={ () => setHistory(prev => prev.slice(0,1))}
+      render={renderResult}
+      onHidden={handleResetMenu}
     >
       {children}
     </Tippy>
